@@ -18,7 +18,7 @@ describe('Array', function() {
 
       assert.notEqual(-1, [1,2,3].indexOf(1));
       assert.notEqual(-1, [1,2,3].indexOf(2));
-      assert.notEqual(-1, [1,2,3].indexOf(4));
+      assert.notEqual(-1, [1,2,3].indexOf(3));
 
     });
 
