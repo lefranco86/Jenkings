@@ -37,3 +37,6 @@ node_modules
 
 # Remove .idea folder
 .idea/
+
+# Remove SQLite database files
+*.db
