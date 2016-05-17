@@ -5,4 +5,5 @@
 ln -s -f ../../scripts/pre-commit.githook.sh .git/hooks/pre-commit;
 chmod +x .git/hooks/pre-commit;
 
+# Checkout to develop
 git checkout develop;
