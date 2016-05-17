@@ -1,4 +1,7 @@
-var assert = require('chai').assert;
+var chai = require('chai'),
+    assert = chai.assert,
+    should = chai.should(),
+    expect = chai.expect;
 
 describe('Array', function() {
 
