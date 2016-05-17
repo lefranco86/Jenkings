@@ -8,7 +8,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/about', function (req, res) {
-  res.send('We are Jenkings!!');
+  res.send('We are Jenkings!!!');
 });
 
 var port = config.get('server_port');
