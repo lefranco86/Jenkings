@@ -7,7 +7,7 @@ le séminaire informatique du CAL.
 
 1. Installer node sur votre ordinateur.
 2. Cloner le présent repo.
-3. `git checkout develop` pour changer de branche.
+3. `npm run init_git` pour initialiser les hooks et checkout dans develop.
 4. `npm install` pour installer les modules nodejs.
 5. `npm start` pour lancer le serveur web.
 
