@@ -7,9 +7,6 @@ app.get('/', function (req, res) {
   res.send('Hello World');
 });
 
-app.get('/intro', function (req, res) {
-  res.send('Intro');
-});
 
 var port = config.get('server_port');
 
