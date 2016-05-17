@@ -1,0 +1,25 @@
+{
+  "name": "jenkings",
+  "version": "1.0.0",
+  "description": "Application pour le seminaire",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "mocha -R dot test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastienrussell/Jenkings.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebastienrussell/Jenkings/issues"
+  },
+  "homepage": "https://github.com/sebastienrussell/Jenkings#readme",
+  "dependencies": {
+    "config": "^1.20.1",
+    "express": "^4.13.4",
+    "mocha": "^2.4.5"
+  }
+}
