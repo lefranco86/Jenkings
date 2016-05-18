@@ -12,7 +12,7 @@ describe("Jenking", function () {
                 it("devrait retourner toutes les document dans la BD");
             });
 
-            context("s'il n'Existe pas de documents", function () {
+            context("s'il n'existe pas de documents", function () {
                 it("devrait afficher un empty state");
             });
 
@@ -20,15 +20,15 @@ describe("Jenking", function () {
 
         describe("PUT", function () {
 
-            context("si les  données sont valides", function () {
+            context("si les données sont valides", function () {
                 it("devrait rajouter un document dans la bd");
             });
 
-            context("si les donées ne sont pas valides ...", function () {
+            context("si les donées ne sont pas valides", function () {
 
-                context("... car l'auteur ...", function () {
+                context("car l'auteur", function () {
 
-                    context("N'existe pas", function () {
+                    context("n'existe pas", function () {
                         it("devrait pas rajouter un document dans la bd");
                     });
 
@@ -38,11 +38,11 @@ describe("Jenking", function () {
 
                 });
 
-                context("... car le type n'existe pas", function () {
+                context("car le type n'existe pas", function () {
                     it("devrait pas rajouter un document dans la bd");
                 });
 
-                context("... car le corps est null ou indéfinit", function () {
+                context("car le corps est null ou indéfinit", function () {
                     it("devrait pas rajouter un document dans la bd");
                 });
 
