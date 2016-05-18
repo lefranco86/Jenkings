@@ -2,6 +2,10 @@ var express = require('express');
 var config = require('config');
 var path = require('path');
 
+var marked = require("marked");
+
+var fs = require("fs");
+
 var app = express();
 
 // Initialisation du rendering engine
@@ -16,11 +20,16 @@ app.get('/', function (req, res) {
 });
 
 app.get('/about', function (req, res) {
-    res.render('index', {title: "About", bodyContent: 'We are Jenkings!!!'});
+
+    res.render('index', {
+        title: "About",
+        bodyContent: 'We are Jenkings!!!'
+    });
+
 });
 
 var port = config.get('server_port');
 
-app.listen(port, function() {
+app.listen(port, function () {
     console.log('Jenkings started on http://localhost:' + port);
 });
