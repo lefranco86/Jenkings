@@ -21,9 +21,9 @@ le séminaire informatique du CAL.
 
 ## Credits
 
-Éric Rosato-Blanchette
-Jérémy Bolduc
-Sébastien Russell
+* Éric Rosato-Blanchette
+* Jérémy Bolduc
+* Sébastien Russell
 
 ## License
 
