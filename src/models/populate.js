@@ -26,18 +26,17 @@ fs.unlink(config.get("database_location"), function (err) {
 
     else {
 
-        console.log("Base de donnée supprimé");
+        console.log("INFOS:", "Base de donnée supprimé");
 
         sequelize.sync({force: true}).then(function () {
 
-            console.log("Base de donnée syncronisé");
+            console.log("INFOS:", "Base de donnée syncronisé");
 
             for (var obj in modele) {
                 if (modele.hasOwnProperty(obj)) {
                     modele[obj].bulkCreate(bulk[obj]).then(function (data) {
 
-
-                        console.log("La table " + obj + " a été populé", data);
+                        console.log("INFOS:", "La table " + data[0].$modelOptions.name.singular + " a été peuplé");
                     }).catch(function (err) {
                         console.error("ERR:", err);
                     });
