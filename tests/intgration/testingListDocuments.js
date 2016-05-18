@@ -4,6 +4,7 @@ var chai = require('chai'),
     expect = chai.expect;
 
 describe("Jenking", function () {
+
     describe("route ?", function () {
 
         describe("GET", function () {
@@ -47,6 +48,17 @@ describe("Jenking", function () {
                 });
 
             });
+
         });
+
     });
+
+    describe("route ?(newdoc)", function () {
+
+        describe("GET", function () {
+            it("devrait afficher la page d'ajout d'un document");
+        });
+
+    });
+
 });
