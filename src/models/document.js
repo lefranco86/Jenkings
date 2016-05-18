@@ -4,9 +4,9 @@
 
 var Sequelize = require('sequelize');
 
-module.exports = function (sequelize, author) {
+module.exports = function (sequelize, modele) {
 
-    return sequelize.define('JNK_DOCUMENT_DOC',
+    modele.document = sequelize.define('JNK_DOCUMENT_DOC',
         {
             id: {
                 type: Sequelize.INTEGER,
@@ -18,7 +18,7 @@ module.exports = function (sequelize, author) {
                 type: Sequelize.INTEGER,
                 field: "DOC_AUTHOR",
                 references: {
-                    model: author,
+                    model: modele.author,
                     key: 'AUT_ID'
                 }
             },

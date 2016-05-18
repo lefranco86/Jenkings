@@ -4,8 +4,8 @@
 
 var Sequelize = require('sequelize');
 
-module.exports = function (sequelize) {
-    return sequelize.define('JNK_AUTHOR_AUT',
+module.exports = function (sequelize, modele) {
+    modele.author = sequelize.define('JNK_AUTHOR_AUT',
         {
             id: {
                 type: Sequelize.INTEGER,
@@ -30,4 +30,5 @@ module.exports = function (sequelize) {
             freezeTableName: true
         }
     );
+
 };
