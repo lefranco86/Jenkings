@@ -37,16 +37,22 @@ fs.unlink(config.get("database_location"), function (err) {
                     modele[obj].bulkCreate(bulk[obj]).then(function (data) {
 
                         console.log("INFOS:", "La table " + data[0].$modelOptions.name.singular + " a été peuplé");
+
                     }).catch(function (err) {
+
                         console.error("ERR:", err);
+
                     });
                 }
             }
 
         }).catch(function (err) {
+
             console.error("ERR:", err);
+
         });
     }
+
 });
 
 
