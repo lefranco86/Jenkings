@@ -1,4 +1,5 @@
-# Jenkings [![Build Status](http://159.203.9.36:3306/buildStatus/icon?job=Jenkings)](http://159.203.9.36:3306/job/Jenkings/)
+# Jenkings 
+[![Build Status](http://159.203.9.36:3306/buildStatus/icon?job=Jenkings)](http://159.203.9.36:3306/job/Jenkings)
 
 Ceci est le projet pour faire la démonstration du développement en continue pour
 le séminaire informatique du CAL.
