@@ -1,0 +1,10 @@
+extends layout
+
+form(action="/author", method="POST")
+    include components/authorForm
+
+    .btn-group
+        button.btn.btn-primary(type="submit") Créer l'autheur
+        a.btn.btn-default(href="/authors") Retour
+
+

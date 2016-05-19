@@ -1,0 +1,9 @@
+extends list
+
+block listContent
+
+    each val in documents
+        a.list-group-item(href="/documents/" + val.id)
+            h4.list-group-item-heading val.title
+            p.list-group-item-text Par #{val.author.firstName} #{val.author.lastName} <#{val.author.nickname}>
+

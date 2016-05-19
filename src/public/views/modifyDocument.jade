@@ -1,0 +1,10 @@
+extends layout
+
+form(action="/document/" + document.id, method="PUT")
+    include components/docForm
+
+    .btn-group
+        button.btn.btn-primary(type="submit") Modifier le document
+        a.btn.btn-default(href="/document/" + document.id ) Retour
+
+

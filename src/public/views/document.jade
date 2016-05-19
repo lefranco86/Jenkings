@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    .page-header
+        h1
+            | #{document.title}
+            small
+                | par
+                a(href="/author/" + document.author.id) #{document.author.firstName} #{document.author.lastName} <#{document.author.nickname}>
+
+    div!= parsedText
+
+    form(action="/document/" + author.id, method="DELETE")
+        .btn-group
+            a.btn.btn-primary#mod-button(href="/author/" + document.id) Modifier
+            button.btn.btn-warning#del-button(type="submit") Supprimer
+

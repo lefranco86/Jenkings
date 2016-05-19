@@ -1,0 +1,20 @@
+//
+   Created by jeremy on 16-05-19.
+
+
+.form-group
+    label(for="documentTitle") Titre du document
+    input.form-control#documentTitle(type="text", name="documentTitle")
+
+.form-group
+    label(for="documentAuthor") Auteur
+    select.form-control#documentAuthor(name="documentAuthor")
+        each val in authors
+            option(value=val.id)= val.firstName + " " + val.lastName + "<" + val.nickname + ">"
+
+.form-group
+    label(for="documentBody") Corps du document
+    textarea.form-control#documentBody(name="documentBody")
+    p.help-block: span
+        | Le text sera interpréter en markdown. Besoins d'aide? allez voir
+        a(href="https://daringfireball.net/projects/markdown/") ici

@@ -1,0 +1,10 @@
+extends layout
+
+form(action="/author/" + author.id, method="PUT")
+    include components/authorForm
+
+    .btn-group
+        button.btn.btn-primary(type="submit") Modifier l'autheur
+        a.btn.btn-default(href="/author/" + author.id ) Retour
+
+

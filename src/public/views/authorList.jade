@@ -1,0 +1,7 @@
+extends list
+
+block listContent
+
+    each val in author
+        a.list-group-item(href="/author/" + val.id) Par #{val.firstName} #{val.lastName} <#{val.firstName}>
+

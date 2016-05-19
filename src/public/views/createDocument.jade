@@ -1,0 +1,10 @@
+extends layout
+
+form(action="/document", method="POST")
+    include components/docForm
+
+    .btn-group
+        button.btn.btn-primary(type="submit") Créer le dcoument
+        a.btn.btn-default(href="/documents") Retour
+
+
