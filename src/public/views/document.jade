@@ -3,18 +3,18 @@ extends layout
 block content
     .page-header
         h1
-            | #{document.title}
+            | #{doc.title}
             small
-                | par
-                a(href="/author/" + document.author.id) #{document.author.firstName} #{document.author.lastName} <#{document.author.nickname}>
+                |  par
+                a(href="/author/" + doc.author.id)  #{doc.author.firstName} #{doc.author.lastName} <#{doc.author.nickname}>
 
     .row
         .col-sm-2 Céer à :
-        .col-sm-10.text-right #{document.createdAt}
+        .col-sm-10.text-right #{doc.createdAt}
 
     .row
         .col-sm-2 Dernière modification à :
-        .col-sm-10.text-right #{document.updatedAt}
+        .col-sm-10.text-right #{doc.updatedAt}
 
     hr
 
@@ -22,8 +22,8 @@ block content
 
     hr
 
-    form(action="/document/" + author.id, method="DELETE")
+    form.text-center(action="/document/" + doc.id + "?_method=DELETE", method="POST")
         .btn-group
-            a.btn.btn-primary#mod-button(href="/author/" + document.id + "/edit") Modifier
+            a.btn.btn-primary#mod-button(href="/document/" + doc.id + "/edit") Modifier
             button.btn.btn-warning#del-button(type="submit") Supprimer
 

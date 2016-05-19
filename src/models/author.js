@@ -27,7 +27,11 @@ module.exports = function (sequelize, modele) {
             }
 
         }, {
-            freezeTableName: true
+            freezeTableName: true,
+            name: {
+                singular: 'author',
+                plural: 'authors'
+            }
         }
     );
 

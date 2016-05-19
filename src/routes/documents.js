@@ -10,7 +10,34 @@ module.exports = function (modelsObject) {
     var router = express.Router();
 
     router.get('/', function (req, res) {
-        // TODO : complétez moi
+
+        var authId = req.query.authId;
+
+        var prom = (authId) ? model.document.findAll({
+            where: {"DOC_AUTHOR": authId},
+            include: [model.author]
+        }) : model.document.findAll({include: [model.author]});
+
+        prom.then(function (docs) {
+
+            var options = {
+                title: "liste auteurs",
+                docs: docs
+            };
+
+            if (authId) {
+                options.authId = authId;
+            }
+
+            res.render("documentList", options);
+
+        }).catch(function (err) {
+
+            res.statusCode = 500;
+            res.send(err).end();
+
+        });
+
     });
 
 

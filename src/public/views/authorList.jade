@@ -1,7 +1,14 @@
-extends list
+extends layout
 
-block listContent
+block content
 
-    each val in authors
-        a.list-group-item(href="/author/" + val.id) #{val.firstName} #{val.lastName} <#{val.firstName}>
+    .page-header: h1 Liste des Auteurs
 
+    .list-group
+        each val in authors
+            a.list-group-item(href="/author/" + val.id) #{val.firstName} #{val.lastName} <#{val.firstName}>
+
+
+    hr
+
+    a.btn.btn-primary(href="/author/new", style={width: "100%"}) Créer un auteur

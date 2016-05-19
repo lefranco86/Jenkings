@@ -14,14 +14,6 @@ module.exports = function (sequelize, modele) {
                 autoIncrement: true,
                 primaryKey: true
             },
-            author: {
-                type: Sequelize.INTEGER,
-                field: "DOC_AUTHOR",
-                references: {
-                    model: modele.author,
-                    key: 'AUT_ID'
-                }
-            },
             type: {
                 type: Sequelize.INTEGER,
                 field: "DOC_TYPE"
@@ -36,8 +28,14 @@ module.exports = function (sequelize, modele) {
             }
 
         }, {
-            freezeTableName: true
+            freezeTableName: true,
+            name: {
+                singular: 'document',
+                plural: 'documents'
+            }
         }
     );
-}
+
+    modele.document.belongsTo(modele.author, {foreignKey: "DOC_AUTHOR"});
+};
 

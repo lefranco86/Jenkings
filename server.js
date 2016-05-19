@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var marked = require("marked");
 var fs = require("fs");
 var Sequelize = require('sequelize');
+var methodOverride = require("method-override");
+
 
 var models = {};
 const pathToRoutes = path.join(__dirname, "src/routes/");
@@ -17,6 +19,8 @@ require("./src/models/author")(sequelize, models);
 require("./src/models/document")(sequelize, models);
 
 var app = express();
+
+app.use(methodOverride('_method'));
 
 // Initialisation du rendering engine
 app.set('views', path.join(__dirname, 'src/public/views'));

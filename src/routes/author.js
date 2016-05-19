@@ -9,6 +9,37 @@ module.exports = function (modelsObject) {
     var express = require('express');
     var router = express.Router();
 
+    router.get('/new', function (req, res) {
+        res.render("createAuthor", {title: "Créer Auteur"});
+    });
+
+    router.put('/:authId', function (req, res) {
+
+        model.author.findById(req.params.authId).then(function (author) {
+
+            author.update({
+                firstName: req.body.authorFirstName,
+                lastName: req.body.authorLastName,
+                nickname: req.body.authorNickname
+            }).then(function () {
+                res.redirect("/authors");
+            });
+        });
+
+    });
+
+    router.delete('/:authId', function (req, res) {
+
+        model.author.findById(req.params.authId).then(function (author) {
+
+            author.destroy().then(function () {
+                res.redirect("/authors");
+            });
+
+        });
+
+    });
+
     router.get('/:authId', function (req, res) {
 
         model.author.findById(req.params.authId).then(function (doc) {
@@ -17,7 +48,6 @@ module.exports = function (modelsObject) {
             res.sendStatus(500).send(err).end();
         });
 
-        // TODO : complétez moi
     });
 
 
@@ -29,37 +59,18 @@ module.exports = function (modelsObject) {
             res.sendStatus(500).send(err).end();
         });
 
-        // TODO : complétez moi
-    });
-
-    router.get('/new', function (req, res) {
-        res.render("createAuthor", {title: "Créer Auteur", author: doc});
-    });
-
-    router.put('/:authId', function (req, res) {
-        // TODO : complétez moi
-
-        console.log("AUTOR MODIFIED");
-        
-        res.redirect("/authors");
-        
-        
-    });
-
-    router.delete('/:authId', function (req, res) {
-        // TODO : complétez moi
-
-        console.log("AUTOR DELETED");
-
-        res.redirect("/authors");
     });
 
     router.post('/', function (req, res) {
-        // TODO : complétez moi
 
-        console.log("AUTOR CREATED");
-
-        res.redirect("/authors");
+        model.author.create({
+            firstName: req.body.authorFirstName,
+            lastName: req.body.authorLastName,
+            nickname: req.body.authorNickname
+        }).then(function () {
+            res.redirect("/authors");
+        });
+        
     });
 
     return router;

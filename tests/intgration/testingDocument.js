@@ -9,10 +9,10 @@ describe("Jenking", function () {
 
         describe("GET", function () {
 
-            context("s'il le document", function () {
+            context("s'il le doc", function () {
 
                 context("existe", function () {
-                    it("devrait afficher le document");
+                    it("devrait afficher le doc");
                 });
 
                 context("n'existe pas", function () {
@@ -25,14 +25,14 @@ describe("Jenking", function () {
 
         describe("PUT", function () {
 
-            context("s'il le document", function () {
+            context("s'il le doc", function () {
 
                 context("existe", function () {
 
                     context("et que le formulaire", function () {
 
                         context("est valide", function () {
-                            it("devrait modifier le document");
+                            it("devrait modifier le doc");
                         });
 
                         context("n'est pas valide", function () {
@@ -52,10 +52,10 @@ describe("Jenking", function () {
 
         describe("DELETE", function () {
 
-            context("s'il le document", function () {
+            context("s'il le doc", function () {
 
                 context("existe", function () {
-                    it("devrait suprimer le document de la bd");
+                    it("devrait suprimer le doc de la bd");
                 });
 
                 context("n'existe pas", function () {
@@ -71,7 +71,7 @@ describe("Jenking", function () {
     describe("route ?(moddoc)", function () {
 
         describe("GET", function () {
-            it("devrait afficher la page de modification d'un document");
+            it("devrait afficher la page de modification d'un doc");
         });
 
     });

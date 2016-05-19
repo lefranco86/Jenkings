@@ -1,8 +1,15 @@
 extends layout
 
 block content
-    h1= bodyContent
-    button.btn.btn-primary(type="button")= title
+    .page-header: h1 Jenkings
 
-    if documentBody
-        div!=documentBody
+    p.
+        Bienvenu à Jenking, l'application de documentation :^)
+
+    hr
+
+    .text-center
+        .btn-group
+            a.btn.btn-primary(href="/documents") Vers la liste des documents
+            a.btn.btn-primary(href="/authors") Vers la liste des auteurs
+

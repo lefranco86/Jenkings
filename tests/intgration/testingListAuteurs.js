@@ -28,15 +28,15 @@ describe("Jenking", function () {
             context("si les donées ne sont pas valides", function () {
 
                 context("car le nom est null ou indéfinit", function () {
-                    it("devrait pas rajouter un document dans la bd");
+                    it("devrait pas rajouter un doc dans la bd");
                 });
 
                 context("car le prénom est null ou indéfinit", function () {
-                    it("devrait pas rajouter un document dans la bd");
+                    it("devrait pas rajouter un doc dans la bd");
                 });
 
                 context("car le nom d'utilisateur est null ou indéfinit", function () {
-                    it("devrait pas rajouter un document dans la bd");
+                    it("devrait pas rajouter un doc dans la bd");
                 });
 
             });

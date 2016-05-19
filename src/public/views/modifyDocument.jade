@@ -1,11 +1,14 @@
 extends layout
 
 block content
-    form(action="/document/" + document.id, method="PUT")
+    .page-header: h1 Modifier le document ##{doc.id}
+
+    form(action="/document/" + doc.id + "?_method=PUT", method="POST")
+
         include components/docForm
 
         .btn-group
             button.btn.btn-primary(type="submit") Modifier le document
-            a.btn.btn-default(href="/document/" + document.id ) Retour
+            a.btn.btn-default(href="/document/" + doc.id ) Retour
 
 

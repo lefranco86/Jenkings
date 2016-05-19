@@ -15,7 +15,7 @@ var sequelize = new Sequelize({
 });
 
 var author = require("./author")(sequelize, modele);
-var document = require("./document")(sequelize, modele);
+var doc = require("./document")(sequelize, modele);
 var bulk = require("./bulkCreate");
 
 fs.unlink(config.get("database_location"), function (err) {
