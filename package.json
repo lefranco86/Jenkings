@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "init_git": "bash scripts/init_git.sh",
-    "test": "mocha --recursive -R xunit tests/ > test-reports.xml",
-    "local_test": "mocha --recursive -R spec tests/",
+    "xml_test": "mocha --recursive -R xunit tests/ > test-reports.xml",
+    "test": "mocha --recursive -R dot tests/",
     "populate": "node ./src/models/populate.js"
   },
   "repository": {
