@@ -2,23 +2,29 @@
  * Created by jeremy on 16-05-19.
  */
 
-var express = require('express');
-var router = express.Router();
+module.exports = function (modelsObject) {
 
-router.get('/:docId', function () {
-    // TODO : complétez moi    
-});
+    var model = modelsObject;
 
-router.put('/:docId', function () {
-    // TODO : complétez moi
-});
+    var express = require('express');
+    var router = express.Router();
 
-router.delete('/:docId', function () {
-    // TODO : complétez moi
-});
+    router.get('/:docId', function (req, res) {
+        // TODO : complétez moi    
+    });
 
-router.post('/', function () {
-    // TODO : complétez moi
-});
+    router.put('/:docId', function (req, res) {
+        // TODO : complétez moi
+    });
 
-module.exports = router;
+    router.delete('/:docId', function (req, res) {
+        // TODO : complétez moi
+    });
+
+    router.post('/', function (req, res) {
+        // TODO : complétez moi
+    });
+
+    return router;
+
+};

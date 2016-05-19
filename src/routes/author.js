@@ -2,23 +2,36 @@
  * Created by jeremy on 16-05-19.
  */
 
-var express = require('express');
-var router = express.Router();
+module.exports = function (modelsObject) {
 
-router.get('/:authId', function () {
-    // TODO : complétez moi    
-});
+    var model = modelsObject;
 
-router.put('/:authId', function () {
-    // TODO : complétez moi
-});
+    var express = require('express');
+    var router = express.Router();
 
-router.delete('/:authId', function () {
-    // TODO : complétez moi
-});
+    router.get('/:authId', function (req, res) {
 
-router.post('/', function () {
-    // TODO : complétez moi
-});
+        model.author.findById(req.params.authId).then(function (doc) {
+            res.render("author", {title: "auteur", author: doc});
 
-module.exports = router;
+        }).catch(function (err) {
+
+        });
+
+        // TODO : complétez moi
+    });
+
+    router.put('/:authId', function (req, res) {
+        // TODO : complétez moi
+    });
+
+    router.delete('/:authId', function (req, res) {
+        // TODO : complétez moi
+    });
+
+    router.post('/', function (req, res) {
+        // TODO : complétez moi
+    });
+
+    return router;
+};

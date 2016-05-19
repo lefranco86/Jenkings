@@ -1,13 +1,25 @@
 var express = require('express');
 var config = require('config');
 var path = require('path');
+var bodyParser = require('body-parser');
 
+var models = {};
+
+var Sequelize = require('sequelize');
+
+var sequelize = new Sequelize({
+    dialect: config.get("database_dialect"),
+    storage: config.get("database_location")
+});
+
+require("./src/models/author")(sequelize, models);
+require("./src/models/document")(sequelize, models);
 
 var routes = {};
 
 require('fs').readdirSync(path.join(__dirname, "src/routes")).forEach(function (file) {
     var fileName = file.replace(/(\.\w+$)/igm, "");
-    routes[fileName] = require("./src/routes/" + fileName);
+    routes[fileName] = require("./src/routes/" + fileName)(models);
 });
 
 var marked = require("marked");
@@ -19,6 +31,9 @@ var app = express();
 // Initialisation du rendering engine
 app.set('views', path.join(__dirname, 'src/public/views'));
 app.set('view engine', 'jade');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Initialisation du répertoire statique
 app.use(express.static(path.join(__dirname, 'src/public/static')));

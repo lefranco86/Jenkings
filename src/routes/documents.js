@@ -2,12 +2,18 @@
  * Created by jeremy on 16-05-19.
  */
 
-var express = require('express');
-var router = express.Router();
+module.exports = function (modelsObject) {
 
-router.get('/', function () {
-    // TODO : complétez moi    
-});
+    var model = modelsObject;
+
+    var express = require('express');
+    var router = express.Router();
+
+    router.get('/', function (req, res) {
+        // TODO : complétez moi
+    });
 
 
-module.exports = router;
+    return router;
+
+};

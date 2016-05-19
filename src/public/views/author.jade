@@ -8,7 +8,7 @@ block content
 
     form.text-center(action="/documents", method="GET")
         input#authorId(type="hidden", name="authId", value=author.id)
-            button.btn.btn-primary#search-button(type="submit") Voir les document de l'auteur
+        button.btn.btn-primary#search-button(type="submit") Voir les document de l'auteur
 
     form(action="/author/" + author.id, method="DELETE")
         .btn-group
