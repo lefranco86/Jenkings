@@ -10,15 +10,13 @@ module.exports = function (modelsObject) {
     var router = express.Router();
 
     router.get('/', function (req, res) {
-        model.author.findAll().then(function (docs) {
-            res.render("authorList", {
-                title: "liste auteurs",
-                authors: docs
-            });
-        })
+
+        res.render('index', {
+            title: "About",
+            bodyContent: 'We are Jenkings!!!'
+        });
+
     });
 
-
     return router;
-
 };

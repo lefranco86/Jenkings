@@ -8,10 +8,22 @@ block content
                 | par
                 a(href="/author/" + document.author.id) #{document.author.firstName} #{document.author.lastName} <#{document.author.nickname}>
 
+    .row
+        .col-sm-2 Céer à :
+        .col-sm-10.text-right #{document.createdAt}
+
+    .row
+        .col-sm-2 Dernière modification à :
+        .col-sm-10.text-right #{document.updatedAt}
+
+    hr
+
     div!= parsedText
+
+    hr
 
     form(action="/document/" + author.id, method="DELETE")
         .btn-group
-            a.btn.btn-primary#mod-button(href="/author/" + document.id) Modifier
+            a.btn.btn-primary#mod-button(href="/author/" + document.id + "/edit") Modifier
             button.btn.btn-warning#del-button(type="submit") Supprimer
 

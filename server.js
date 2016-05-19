@@ -2,11 +2,12 @@ var express = require('express');
 var config = require('config');
 var path = require('path');
 var bodyParser = require('body-parser');
-
-var models = {};
-
+var marked = require("marked");
+var fs = require("fs");
 var Sequelize = require('sequelize');
 
+var models = {};
+const pathToRoutes = path.join(__dirname, "src/routes/");
 var sequelize = new Sequelize({
     dialect: config.get("database_dialect"),
     storage: config.get("database_location")
@@ -14,17 +15,6 @@ var sequelize = new Sequelize({
 
 require("./src/models/author")(sequelize, models);
 require("./src/models/document")(sequelize, models);
-
-var routes = {};
-
-require('fs').readdirSync(path.join(__dirname, "src/routes")).forEach(function (file) {
-    var fileName = file.replace(/(\.\w+$)/igm, "");
-    routes[fileName] = require("./src/routes/" + fileName)(models);
-});
-
-var marked = require("marked");
-
-var fs = require("fs");
 
 var app = express();
 
@@ -38,24 +28,19 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Initialisation du répertoire statique
 app.use(express.static(path.join(__dirname, 'src/public/static')));
 
-app.use("/document", routes.document);
-app.use("/documents", routes.documents);
-app.use("/author", routes.author);
-app.use("/authors", routes.authors);
 
+// Route par défaut
 app.get('/', function (req, res) {
     res.render('index', {title: "Index", bodyContent: 'Hello World'});
 });
 
-app.get('/about', function (req, res) {
-
-    res.render('index', {
-        title: "About",
-        bodyContent: 'We are Jenkings!!!'
-    });
-
+// Importation des routes
+fs.readdirSync(pathToRoutes).forEach(function (file) {
+    var fileName = file.replace(/(\.\w+$)/igm, "");
+    app.use("/" + fileName, require(path.join(pathToRoutes, fileName))(models));
 });
 
+// Lancement du serveur
 var port = config.get('server_port');
 
 app.listen(port, function () {

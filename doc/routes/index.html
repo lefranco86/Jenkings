@@ -207,16 +207,26 @@
 
     <li><a href="#authorAuthIdDelete"><code><span class="http-method">delete</span> /author/{authId}</code></a></li>
 
+    <li><a href="#authorAuthIdEditGet"><code><span class="http-method">get</span> /author/{authId}/edit</code></a></li>
+
     <li><a href="#authorAuthIdGet"><code><span class="http-method">get</span> /author/{authId}</code></a></li>
 
     <li><a href="#authorAuthIdPut"><code><span class="http-method">put</span> /author/{authId}</code></a></li>
+
+    <li><a href="#authorNewGet"><code><span class="http-method">get</span> /author/new</code></a></li>
 
     <li><a href="#authorPost"><code><span class="http-method">post</span> /author</code></a></li>
 
     <li><a href="#authorsGet"><code><span class="http-method">get</span> /authors</code></a></li>
 
 
+    <li><a href="#documentNewGet"><code><span class="http-method">get</span> /document/new</code></a></li>
+
+
     <li><a href="#documentDocIdDelete"><code><span class="http-method">delete</span> /document/{docId}</code></a></li>
+
+    <li><a href="#documentDocIdEditGet"><code><span class="http-method">get</span> /document/{docId}/edit</code></a>
+    </li>
 
     <li><a href="#documentDocIdGet"><code><span class="http-method">get</span> /document/{docId}</code></a></li>
 
@@ -272,6 +282,47 @@
 
     <h4 class="field-label">404</h4>
     Document inexistant
+
+
+</div> <!-- method -->
+<hr/>
+
+<div class="method"><a name="authorAuthIdEditGet"/>
+    <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre class="get"><code class="huge"><span class="http-method">get</span> /author/{authId}/edit</code></pre>
+    </div>
+    <div class="method-summary">AAffiche un formulaire de modification d&#39;auteur (<span class="nickname">authorAuthIdEditGet</span>)
+    </div>
+
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+        <div class="param">authId (required)</div>
+
+        <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id de l&#39;auteur</div>
+    </div>  <!-- field-items -->
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+
+        <li><code>text/html</code></li>
+
+    </ul>
+
+
+    <h3 class="field-label">Responses</h3>
+
+    <h4 class="field-label">200</h4>
+    OK
 
 
 </div> <!-- method -->
@@ -383,6 +434,40 @@
 </div> <!-- method -->
 <hr/>
 
+<div class="method"><a name="authorNewGet"/>
+    <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre class="get"><code class="huge"><span class="http-method">get</span> /author/new</code></pre>
+    </div>
+    <div class="method-summary">Affiche un formulaire de cr\u00E9ation d&#39;auteur (<span
+            class="nickname">authorNewGet</span>)
+    </div>
+
+    <div class="method-notes"></div>
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+
+        <li><code>text/html</code></li>
+
+    </ul>
+
+
+    <h3 class="field-label">Responses</h3>
+
+    <h4 class="field-label">200</h4>
+    OK
+
+
+</div> <!-- method -->
+<hr/>
+
 <div class="method"><a name="authorPost"/>
     <div class="method-path">
         <a class="up" href="#__Methods">Up</a>
@@ -464,6 +549,40 @@
 <hr/>
 
 
+<div class="method"><a name="documentNewGet"/>
+    <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre class="get"><code class="huge"><span class="http-method">get</span> /document/new</code></pre>
+    </div>
+    <div class="method-summary">Affiche un formulaire de cr\u00E9ation de document (<span class="nickname">documentNewGet</span>)
+    </div>
+
+    <div class="method-notes"></div>
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+
+        <li><code>text/html</code></li>
+
+    </ul>
+
+
+    <h3 class="field-label">Responses</h3>
+
+    <h4 class="field-label">200</h4>
+    OK
+
+
+</div> <!-- method -->
+<hr/>
+
+
 <div class="method"><a name="documentDocIdDelete"/>
     <div class="method-path">
         <a class="up" href="#__Methods">Up</a>
@@ -503,6 +622,47 @@
 
     <h4 class="field-label">404</h4>
     Document inexistant
+
+
+</div> <!-- method -->
+<hr/>
+
+<div class="method"><a name="documentDocIdEditGet"/>
+    <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre class="get"><code class="huge"><span class="http-method">get</span> /document/{docId}/edit</code></pre>
+    </div>
+    <div class="method-summary">Affiche un formulaire de modification de document (<span class="nickname">documentDocIdEditGet</span>)
+    </div>
+
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+        <div class="param">docId (required)</div>
+
+        <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Id du document</div>
+    </div>  <!-- field-items -->
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+
+        <li><code>text/html</code></li>
+
+    </ul>
+
+
+    <h3 class="field-label">Responses</h3>
+
+    <h4 class="field-label">200</h4>
+    OK
 
 
 </div> <!-- method -->

@@ -13,6 +13,15 @@ module.exports = function (modelsObject) {
         // TODO : complétez moi    
     });
 
+    router.get('/:docId/edit', function (req, res) {
+        // TODO : complétez moi
+    });
+
+    router.get('/new', function (req, res) {
+
+        // TODO : complétez moi
+    });
+
     router.put('/:docId', function (req, res) {
         // TODO : complétez moi
     });

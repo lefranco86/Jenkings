@@ -4,12 +4,12 @@
 
 .form-group
     label(for="authorFirstName") Prénom
-    input.form-control#authorFirstName(type="text", name="authorFirstName")
+    input.form-control#authorFirstName(type="text", name="authorFirstName", value=(author ? author.firstName : "" ))
 
 .form-group
     label(for="authorLastName") Nom de famille
-    input.form-control#authorLastName(type="text", name="authorLastName")
+    input.form-control#authorLastName(type="text", name="authorLastName", value=(author ? author.lastName : "" ))
 
 .form-group
     label(for="authorNickname") Nom d'utilisateur
-    input.form-control#authorNickname(type="text", name="authorNickname")
+    input.form-control#authorNickname(type="text", name="authorNickname", value=(author ? author.nickname : "" ))
