@@ -7,6 +7,10 @@ var fs = require('fs');
 
 var config = require('config');
 
+/**
+ * Ceci contiendra toutels les modèles de sequelize
+ * @typedef {{author : sequelize.Model, document: sequelize.Model}} modelObjects
+ */
 var modele = {};
 
 var sequelize = new Sequelize({
@@ -18,28 +22,29 @@ require("./author")(sequelize, modele);
 require("./document")(sequelize, modele);
 var bulk = require("./bulkCreate");
 
-fs.unlink(config.get("database_location"), function(err) {
-  if (err) {
-    console.error("ERR:", err);
-  } else {
-    console.log("INFOS:", "Base de donnée supprimé");
-
-    sequelize.sync({force: true}).then(function() {
-      console.log("INFOS:", "Base de donnée syncronisé");
-      for (var obj in modele) {
-        if (modele.hasOwnProperty(obj)) {
-          modele[obj].bulkCreate(bulk[obj]).then(function(data) {
-            console.log("INFOS:",
-              "La table " +
-              data[0].$modelOptions.name.singular +
-              " a été peuplé");
-          }).catch(function(err) {
-            console.error("ERR:", err);
-          });
-        }
+try {
+  fs.accessSync(config.get("database_location"));
+  fs.unlinkSync(config.get("database_location"));
+  console.log("INFOS:", "Base de donnée supprimé");
+} catch (err) {
+  console.error("ERR:", err);
+} finally {
+  sequelize.sync({force: true}).then(function() {
+    console.log("INFOS:", "Base de donnée syncronisé");
+    for (var obj in modele) {
+      if (modele.hasOwnProperty(obj)) {
+        modele[obj].bulkCreate(bulk[obj]).then(function(data) {
+          console.log("INFOS:",
+            "La table " +
+            data[0].$modelOptions.name.singular +
+            " a été peuplé");
+        }).catch(function(err) {
+          console.error("ERR:", err);
+        });
       }
-    }).catch(function(err) {
-      console.error("ERR:", err);
-    });
-  }
-});
+    }
+  }).catch(function(err) {
+    console.error("ERR:", err);
+  });
+}
+

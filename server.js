@@ -6,6 +6,10 @@ var fs = require("fs");
 var Sequelize = require('sequelize');
 var methodOverride = require("method-override");
 
+/**
+ * Ceci contiendra toutels les modèles de sequelize
+ * @typedef {{author : sequelize.Model, document: sequelize.Model}} modelObjects
+ */
 var models = {};
 const pathToRoutes = path.join(__dirname, "src/routes/");
 var sequelize = new Sequelize({

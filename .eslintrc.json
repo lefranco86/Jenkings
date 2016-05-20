@@ -1,4 +1,9 @@
 {
     "extends": "google",
-    "installedESLint": true
+    "installedESLint": true,
+    "env": {
+        "node" : true,
+        "mocha" : true,
+        "es6" : true
+    }
 }
