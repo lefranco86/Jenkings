@@ -1,6 +1,6 @@
 /* Created by jeremy on 16-05-19. */
 
-module.exports = function(modelsObject) {
+module.exports = function() {
   // var model = modelsObject;
   var express = require('express');
   var router = express.Router();

@@ -1,11 +1,13 @@
 #!/bin/zsh
 # Les commandes sont exécuté dans le répertoire racine de Jenkings
 
-export PATH=/usr/local/bin:$PATH
+path_result=$(echo $PATH | grep /usr/local/bin);
+if [[ path_result != "" ]]; then
+    export PATH=/usr/local/bin:$PATH
+fi
 
-e=$(eslint .)
-echo "${e}";
-if [[ "$e" != *"0 problems"* ]]; then
+eslint .;
+if [[ $? != 0 ]]; then
   echo "ERROR: Check eslint hints."
   exit 1 # reject
 fi
