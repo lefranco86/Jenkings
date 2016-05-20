@@ -2,16 +2,18 @@ extends layout
 
 block content
 
-    .page-header: h1 Liste des Document #{(authId ? ("par l'auteur #" + authId) : "" )}
+  .page-header
+    h1
+      | Liste des Document
+      | #{(authId ? ("par l'auteur #" + authId) : "" )}
 
-    .list-group
-        each val in docs
-            - console.log(val);
-            a.list-group-item(href="/document/" + val.id)
-                h4.list-group-item-heading= val.title
-                p.list-group-item-text Par #{val.author.firstName} #{val.author.lastName} <#{val.author.nickname}>
+  .list-group
+    each val in docs
+      a.list-group-item(href="/document/" + val.id)
+        h4.list-group-item-heading= val.title
+        p.list-group-item-text Par #{val.author.firstName} #{val.author.lastName} <#{val.author.nickname}>
 
-    hr
+  hr
 
-    a.btn.btn-primary(href="/document/new", style={width: "100%"}) Créer un document
+  a.btn.btn-primary(href="/document/new", style={width: "100%"}) Créer un document
 
