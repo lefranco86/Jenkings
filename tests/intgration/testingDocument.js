@@ -1,6 +1,5 @@
-/* eslint-env node, mocha */
-
-// TODO : var assert = require('chai').assert;
+var chai = require('chai');
+chai.should();
 
 describe("Jenking", function() {
   describe("route ?", function() {

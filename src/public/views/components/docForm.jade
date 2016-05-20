@@ -15,7 +15,8 @@
 
 .form-group
     label.control-label(for="documentBody") Corps du document
-    textarea.form-control#documentBody(style="max-width:100%", name="documentBody")= (doc ? doc.body : "")
+    textarea.form-control#documentBody(style="max-width:100%; font-family:monospace;ls", name="documentBody")= (doc
+            ? doc.body : "")
     p.help-block: span
         | Le text sera interpréter en markdown. Besoins d'aide? allez voir
         a(href="https://daringfireball.net/projects/markdown/")  ici

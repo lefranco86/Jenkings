@@ -1,14 +1,14 @@
-/* Created by jeremy on 16-05-19. */
+/**
+ * Created by jeremy on 16-05-19.
+ */
 
 module.exports = function(modelsObject) {
   var model = modelsObject;
   var express = require('express');
-  var router = express.Router();
+  var router = new express.Router();
 
   router.get('/new', function(req, res) {
-    res.render("createAuthor", {
-      title: "Créer Auteur"
-    });
+    res.render("createAuthor", {title: "Créer Auteur"});
   });
 
   router.put('/:authId', function(req, res) {
@@ -33,10 +33,7 @@ module.exports = function(modelsObject) {
 
   router.get('/:authId', function(req, res) {
     model.author.findById(req.params.authId).then(function(doc) {
-      res.render("author", {
-        title: "auteur",
-        author: doc
-      });
+      res.render("author", {title: "auteur", author: doc});
     }).catch(function(err) {
       res.sendStatus(500).send(err).end();
     });
@@ -44,10 +41,7 @@ module.exports = function(modelsObject) {
 
   router.get('/:authId/edit', function(req, res) {
     model.author.findById(req.params.authId).then(function(doc) {
-      res.render("modifyAuthor", {
-        title: "Modifier Auteur",
-        author: doc
-      });
+      res.render("modifyAuthor", {title: "Modifier Auteur", author: doc});
     }).catch(function(err) {
       res.sendStatus(500).send(err).end();
     });

@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 # Les commandes sont exécuté dans le répertoire racine de Jenkings
 
 # Init git pre-commit hook

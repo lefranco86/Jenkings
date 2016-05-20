@@ -1,4 +1,6 @@
-/* Created by jeremy on 16-05-17. */
+/**
+ * Created by jeremy on 16-05-17.
+ */
 
 var Sequelize = require('sequelize');
 var fs = require('fs');
@@ -12,8 +14,8 @@ var sequelize = new Sequelize({
   storage: config.get("database_location")
 });
 
-// var author = require("./author")(sequelize, modele);
-// var doc = require("./document")(sequelize, modele);
+require("./author")(sequelize, modele);
+require("./document")(sequelize, modele);
 var bulk = require("./bulkCreate");
 
 fs.unlink(config.get("database_location"), function(err) {
@@ -22,15 +24,15 @@ fs.unlink(config.get("database_location"), function(err) {
   } else {
     console.log("INFOS:", "Base de donnée supprimé");
 
-    sequelize.sync({
-      force: true
-    }).then(function() {
+    sequelize.sync({force: true}).then(function() {
       console.log("INFOS:", "Base de donnée syncronisé");
-
       for (var obj in modele) {
         if (modele.hasOwnProperty(obj)) {
           modele[obj].bulkCreate(bulk[obj]).then(function(data) {
-            console.log("INFOS:", "La table " + data[0].$modelOptions.name.singular + " a été peuplé");
+            console.log("INFOS:",
+              "La table " +
+              data[0].$modelOptions.name.singular +
+              " a été peuplé");
           }).catch(function(err) {
             console.error("ERR:", err);
           });

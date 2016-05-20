@@ -2,7 +2,6 @@ var express = require('express');
 var config = require('config');
 var path = require('path');
 var bodyParser = require('body-parser');
-// ?? var marked = require("marked");
 var fs = require("fs");
 var Sequelize = require('sequelize');
 var methodOverride = require("method-override");
@@ -26,19 +25,14 @@ app.set('views', path.join(__dirname, 'src/public/views'));
 app.set('view engine', 'jade');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Initialisation du répertoire statique
 app.use(express.static(path.join(__dirname, 'src/public/static')));
 
 // Route par défaut
 app.get('/', function(req, res) {
-  res.render('index', {
-    title: "Index",
-    bodyContent: 'Hello World'
-  });
+  res.render('index', {title: "Index", bodyContent: 'Hello World'});
 });
 
 // Importation des routes

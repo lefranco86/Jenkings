@@ -1,6 +1,5 @@
-/* eslint-env node, mocha */
-
-// TODO : var assert = require('chai').assert;
+var chai = require('chai');
+chai.should();
 
 describe("Jenking", function() {
   describe("route ?", function() {
@@ -31,7 +30,6 @@ describe("Jenking", function() {
         context("car le nom d'utilisateur est null ou indéfinit", function() {
           it("devrait pas rajouter un doc dans la bd");
         });
-
       });
     });
   });
