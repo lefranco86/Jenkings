@@ -3,13 +3,13 @@ extends layout
 
 block content
 
-    .page-header: h1 Créer un Document
+  .page-header: h1 Créer un Document
 
-    form(action="/document", method="POST")
-        include components/docForm
+  form(action="/document", method="POST")
+    include components/docForm
 
-        .btn-group
-            button.btn.btn-primary(type="submit") Créer le document
-            a.btn.btn-default(href="/documents") Retour
+    .btn-group
+      button.btn.btn-primary(type="submit") Créer le document
+      a.btn.btn-default(href="/documents") Retour
 
 

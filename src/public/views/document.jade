@@ -1,29 +1,42 @@
 extends layout
 
+include components/deleteDialogMixin
+
 block content
-    .page-header
-        h1
-            | #{doc.title}
-            small
-                |  par
-                a(href="/author/" + doc.author.id)  #{doc.author.firstName} #{doc.author.lastName} <#{doc.author.nickname}>
 
-    .row
-        .col-sm-2 Céer à :
-        .col-sm-10.text-right #{doc.createdAt}
+  -
+    var data = {
+    type: "document",
+    name: doc.title,
+    descr: doc.title + " par " + doc.author.firstName + " "
+    + doc.author.lastName + " <" + doc.author.nickname + ">"
+    }
 
-    .row
-        .col-sm-2 Dernière modification à :
-        .col-sm-10.text-right #{doc.updatedAt}
+  +deleteDialog(data, "/document/" + doc.id )
 
-    hr
+  .page-header: h1
+    | #{doc.title}
+    small
+      |  par
+      a(href="/author/#{doc.author.id}")
+        |  #{doc.author.firstName} #{doc.author.lastName} <#{doc.author.nickname}>
 
-    div!= parsedText
+  .row
+    .col-sm-2 Céer à :
+    .col-sm-10.text-right #{doc.createdAt}
 
-    hr
+  .row
+    .col-sm-2 Dernière modification à :
+    .col-sm-10.text-right #{doc.updatedAt}
 
-    form.text-center(action="/document/" + doc.id + "?_method=DELETE", method="POST")
-        .btn-group
-            a.btn.btn-primary#mod-button(href="/document/" + doc.id + "/edit") Modifier
-            button.btn.btn-warning#del-button(type="submit") Supprimer
+  hr
+
+  div!= parsedText
+
+  hr
+
+  .text-center: .btn-group
+    a.btn.btn-primary#mod-button(href="/document/#{doc.id}/edit")
+      | Modifier
+    button.btn.btn-warning#del-button(type="button", data-toggle="modal", data-target="#delete-document-modal") Supprimer
 

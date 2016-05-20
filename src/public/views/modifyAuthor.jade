@@ -2,14 +2,14 @@ extends layout
 
 block content
 
-    .page-header: h1 Modifier l'auteur ##{author.id}
+  .page-header: h1 Modifier l'auteur ##{author.id}
 
-    form(action="/author/" + author.id + "?_method=PUT", method="POST")
+  form(action="/author/#{author.id}?_method=PUT", method="POST")
 
-        include components/authorForm
+    include components/authorForm
 
-        .btn-group
-            button.btn.btn-primary(type="submit") Modifier l'autheur
-            a.btn.btn-default(href="/author/" + author.id ) Retour
+    .btn-group
+      button.btn.btn-primary(type="submit") Modifier l'autheur
+      a.btn.btn-default(href="/author/#{author.id}" ) Retour
 
 

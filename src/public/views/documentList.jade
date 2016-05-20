@@ -2,14 +2,13 @@ extends layout
 
 block content
 
-  .page-header
-    h1
-      | Liste des Document
-      | #{(authId ? ("par l'auteur #" + authId) : "" )}
+  .page-header: h1
+    | Liste des Document
+    | #{(authId ? ("par l'auteur #" + authId) : "" )}
 
   .list-group
     each val in docs
-      a.list-group-item(href="/document/" + val.id)
+      a.list-group-item(href="/document/#{val.id}")
         h4.list-group-item-heading= val.title
         p.list-group-item-text Par #{val.author.firstName} #{val.author.lastName} <#{val.author.nickname}>
 

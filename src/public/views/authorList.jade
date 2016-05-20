@@ -2,13 +2,14 @@ extends layout
 
 block content
 
-    .page-header: h1 Liste des Auteurs
+  .page-header: h1 Liste des Auteurs
 
-    .list-group
-        each val in authors
-            a.list-group-item(href="/author/" + val.id) #{val.firstName} #{val.lastName} <#{val.firstName}>
+  .list-group
+    each val in authors
+      a.list-group-item(href="/author/#{val.id}")
+        | #{val.firstName} #{val.lastName} <#{val.firstName}>
 
 
-    hr
+  hr
 
-    a.btn.btn-primary(href="/author/new", style={width: "100%"}) Créer un auteur
+  a.btn.btn-primary(href="/author/new", style={width: "100%"}) Créer un auteur

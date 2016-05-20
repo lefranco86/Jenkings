@@ -24,7 +24,12 @@ module.exports = function(modelsObject) {
     model.author.findAll().then(function(models) {
       res.render("createDocument", {
         title: "Créer Document",
-        authors: models
+        authors: models,
+        doc: {
+          title: "",
+          body: "",
+          DOC_AUTHOR: null
+        }
       });
     });
   });

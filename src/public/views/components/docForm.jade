@@ -1,21 +1,20 @@
 //
    Created by jeremy on 16-05-19.
 
+.form-group
+  label.control-label(for="documentTitle") Titre du document
+  input.form-control#documentTitle(type="text", name="documentTitle", value=doc.title)
 
 .form-group
-    label.control-label(for="documentTitle") Titre du document
-    input.form-control#documentTitle(type="text", name="documentTitle", value=(doc ? doc.title : ""))
+  label.control-label(for="documentAuthor") Auteur
+  select.form-control#documentAuthor(name="documentAuthor")
+    each val in authors
+      option(value=val.id, selected=(val.id == doc.DOC_AUTHOR))
+        | #{val.firstName} #{val.lastName} #{"<" + val.nickname + ">"}
 
 .form-group
-    label.control-label(for="documentAuthor") Auteur
-    select.form-control#documentAuthor(name="documentAuthor")
-        if authors
-            each val in authors
-                option(value=val.id, selected=((doc) && (val.id == doc.DOC_AUTHOR)))= val.firstName + " " + val.lastName + "<" + val.nickname + ">"
-
-.form-group
-    label.control-label(for="documentBody") Corps du document
-    textarea.form-control#documentBody(style="max-width:100%; font-family:monospace;ls", name="documentBody")= (doc ? doc.body : "")
-    p.help-block: span
-        | Le text sera interpréter en markdown. Besoins d'aide? allez voir
-        a(href="https://daringfireball.net/projects/markdown/")  ici
+  label.control-label(for="documentBody") Corps du document
+  textarea.form-control#documentBody(style="max-width:100%; font-family:monospace;", name="documentBody")= doc.body
+  p.help-block: span
+    | Le text sera interpréter en markdown. Besoins d'aide? allez voir
+    a(href="https://daringfireball.net/projects/markdown/")  ici

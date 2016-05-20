@@ -1,28 +1,38 @@
 extends layout
 
+include components/deleteDialogMixin
+
 block content
-    .page-header
-        h1
-            | #{author.firstName} #{author.lastName}
-            small  a.k.a #{author.nickname}
 
-    .row
-        .col-sm-2 Céer à :
-        .col-sm-10.text-right #{author.createdAt}
+  -
+    var data = {
+    type: "author",
+    name: author.firstName + " " + author.lastName,
+    descr: author.firstName + " "+ author.lastName + " <" + author.nickname + ">"
+    }
 
-    .row
-        .col-sm-2 Dernière modification à :
-        .col-sm-10.text-right #{author.updatedAt}
+  +deleteDialog(data, "/author/" + author.id )
 
-    hr
+  .page-header: h1
+    | #{author.firstName} #{author.lastName}
+    small  a.k.a #{author.nickname}
 
-    form.text-center(action="/documents", method="GET")
-        input#authorId(type="hidden", name="authId", value=author.id)
-        button.btn.btn-primary#search-button(type="submit", style={width: "100%"}) Voir les document de l'auteur
+  .row
+    .col-sm-2 Céer à :
+    .col-sm-10.text-right #{author.createdAt}
 
-    hr
+  .row
+    .col-sm-2 Dernière modification à :
+    .col-sm-10.text-right #{author.updatedAt}
 
-    form.text-center(action="/author/" + author.id + "?_method=DELETE", method="POST")
-        .btn-group
-            a.btn.btn-primary#mod-button(href="/author/" + author.id + "/edit") Modifier
-            button.btn.btn-warning#del-button(type="submit") Supprimer
+  hr
+
+  form.text-center(action="/documents", method="GET")
+    input#authorId(type="hidden", name="authId", value=author.id)
+    button.btn.btn-primary#search-button(type="submit", style={width: "100%"}) Voir les document de l'auteur
+
+  hr
+
+  .text-center: .btn-group
+    a.btn.btn-primary#mod-button(href="/author/#{author.id}/edit") Modifier
+    button.btn.btn-warning#del-button(type="button", data-toggle="modal", data-target="#delete-author-modal") Supprimer

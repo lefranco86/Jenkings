@@ -1,19 +1,18 @@
 doctype html
 html(lang="fr")
-    head
-        meta(charset="utf-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1")
-        meta(http-equiv="viewport", content="IE=edge")
-        meta(name="theme-color", content="#158cba")
-        meta(name="msapplication-TileColor", content="#158cba")
-        script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
-        link(rel='stylesheet', href="/stylesheets/bootstrap.min.css")
-        script(src="/javascripts/bootstrap.min.js")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(http-equiv="viewport", content="IE=edge")
+    meta(name="theme-color", content="#158cba")
+    meta(name="msapplication-TileColor", content="#158cba")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+    link(rel='stylesheet', href="/stylesheets/bootstrap.min.css")
+    script(src="/javascripts/bootstrap.min.js")
 
-        title #{title} - Jenking
+    title #{title} - Jenking
 
-    body
-        .container: block content
+  body
+    .container: block content
 
-        footer.container.text-center(style={padding: "13px 0 "})
-            a(href="/") Retour à l'acceuil
+    footer.container.text-center(style={padding: "13px 0 "}): a(href="/") Retour à l'acceuil

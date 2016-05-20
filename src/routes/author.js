@@ -18,7 +18,14 @@ module.exports = function(modelsObject) {
   var router = new express.Router();
 
   router.get('/new', function(req, res) {
-    res.render("createAuthor", {title: "Créer Auteur"});
+    res.render("createAuthor", {
+      title: "Créer Auteur",
+      author: {
+        firstName: "",
+        lastName: "",
+        nickname: ""
+      }
+    });
   });
 
   router.put('/:authId', function(req, res) {

@@ -1,0 +1,11 @@
+//
+   Created by jeremy on 16-05-20.
+
+mixin deleteDialog(data, route)
+  .modal.fade(id="delete-#{data.type}-modal", role="dialog"): .modal-dialog: .modal-content
+    .modal-header: h4.modal-title Suprimer #{data.name} ?
+    .modal-body: p.
+      Êtes-vous sûr de vouloir supprimer #{data.descr} ?
+    .modal-footer: form.btn-group(method="POST", action="#{route}?_method=DELETE")
+      button.btn.btn-default(type="button", data-dismiss="modal") non
+      button.btn.btn-primary(type="submit") oui
