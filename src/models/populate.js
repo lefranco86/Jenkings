@@ -10,7 +10,7 @@ var config = require('config');
 
 /**
  * Ceci contiendra toutels les modèles de sequelize
- * @typedef {{author : sequelize.Model, document: sequelize.Model}} modelObjects
+ * @typedef {{author : Model, document: Model}} modelObjects
  */
 var modele = {};
 

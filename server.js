@@ -8,7 +8,7 @@ var methodOverride = require("method-override");
 
 /**
  * Ceci contiendra toutels les modèles de sequelize
- * @typedef {{author : sequelize.Model, document: sequelize.Model}} modelObjects
+ * @typedef {{author : Model, document: Model}} modelObjects
  */
 var models = {};
 const pathToRoutes = path.join(__dirname, "src/routes/");

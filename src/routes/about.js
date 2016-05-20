@@ -2,6 +2,8 @@
  * Created by jeremy on 16-05-19.
  */
 
+var express = require('express');
+
 /**
  * Ceci contiendra toutels les modèles de sequelize
  * @typedef {{author : sequelize.Model, document: sequelize.Model}} modelObjects
@@ -14,16 +16,22 @@
  */
 module.exports = function(modelsObject) {
   var model = modelsObject;
-  model = {title: "About"};
-  var express = require('express');
   var router = new express.Router();
 
-  router.get('/', function(req, res) {
+  /**
+   * Route GET
+   *
+   * @param {object} req l'objet request
+   * @param {object} res l'objet response
+   */
+  function GET(req, res) {
     res.render('index', {
       title: model.title,
       bodyContent: 'We are Jenkings!!!'
     });
-  });
+  }
+
+  router.get('/', GET);
 
   return router;
 };
