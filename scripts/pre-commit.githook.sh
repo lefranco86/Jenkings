@@ -6,7 +6,7 @@ if [[ path_result != "" ]]; then
     export PATH=/usr/local/bin:$PATH
 fi
 
-eslint .;
+npm run lint;
 if [[ $? != 0 ]]; then
   echo "ERROR: Check eslint hints."
   exit 1 # reject

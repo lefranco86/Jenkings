@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "init_git": "bash scripts/init_git.sh",
-    "lint": "eslint .",
+    "lint": "eslint -c .eslintrc.json .",
     "populate": "node ./src/models/populate.js",
     "start": "node server.js",
     "test": "mocha --recursive -R dot tests/",
