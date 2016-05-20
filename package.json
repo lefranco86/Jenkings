@@ -4,27 +4,25 @@
   "description": "Application pour le seminaire",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
     "init_git": "bash scripts/init_git.sh",
-    "xml_test": "mocha --recursive -R xunit tests/ > test-reports.xml",
+    "lint": "eslint .",
+    "populate": "node ./src/models/populate.js",
+    "start": "node server.js",
     "test": "mocha --recursive -R dot tests/",
-    "populate": "node ./src/models/populate.js"
+    "xml_test": "mocha --recursive -R xunit tests/ > test-reports.xml"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sebastienrussell/Jenkings.git"
   },
   "author": "Sébastien Russell <russell.sebas@gmail.com>",
-  "contributors": [
-    {
-      "name": "Jérémy Bolduc",
-      "email": "BoldJe1.work@gmail.com"
-    },
-    {
-      "name": "Éric Rosato-Blanchette",
-      "email": "ericrblanchette@gmail.com"
-    }
-  ],
+  "contributors": [{
+    "name": "Jérémy Bolduc",
+    "email": "BoldJe1.work@gmail.com"
+  }, {
+    "name": "Éric Rosato-Blanchette",
+    "email": "ericrblanchette@gmail.com"
+  }],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sebastienrussell/Jenkings/issues"
@@ -43,6 +41,11 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^2.10.2",
+    "eslint-config-google": "^0.5.0",
     "mocha": "^2.4.5"
+  },
+  "eslintConfig": {
+    "extends": "google"
   }
 }
