@@ -1,5 +1,5 @@
 {
-  "server_port": "80",
-  "database_location": "../jenking.db",
+  "server_port": "3000",
+  "database_location": "../../jenking.db",
   "database_dialect": "sqlite"
 }

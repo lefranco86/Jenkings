@@ -4,6 +4,7 @@
 
 var Sequelize = require('sequelize');
 var fs = require('fs');
+var path = require('path');
 
 var config = require('config');
 
@@ -13,22 +14,24 @@ var config = require('config');
  */
 var modele = {};
 
+var databaseLocation = path.join(__dirname, config.get("database_location"));
+
 var sequelize = new Sequelize({
   dialect: config.get("database_dialect"),
-  storage: config.get("database_location")
+  storage: databaseLocation
 });
 
 require("./author")(sequelize, modele);
-require("./document")(sequelize, modele);
+require("./document")(sequelize, modele, true);
+
 var bulk = require("./bulkCreate");
 
-try {
-  fs.accessSync(config.get("database_location"));
-  fs.unlinkSync(config.get("database_location"));
-  console.log("INFOS:", "Base de donnée supprimé");
-} catch (err) {
-  console.error("ERR:", err);
-} finally {
+fs.access(databaseLocation, fs.F_OK, function(err) {
+  if (!err) {
+    fs.unlinkSync(databaseLocation);
+    console.log("INFOS:", "Base de donnée supprimé");
+  }
+
   sequelize.sync({force: true}).then(function() {
     console.log("INFOS:", "Base de donnée syncronisé");
     for (var obj in modele) {
@@ -46,5 +49,5 @@ try {
   }).catch(function(err) {
     console.error("ERR:", err);
   });
-}
+});
 

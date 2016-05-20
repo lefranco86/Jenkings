@@ -12,13 +12,16 @@ var methodOverride = require("method-override");
  */
 var models = {};
 const pathToRoutes = path.join(__dirname, "src/routes/");
+
 var sequelize = new Sequelize({
   dialect: config.get("database_dialect"),
-  storage: config.get("database_location")
+  storage: path.join(__dirname, 'src/models', config.get("database_location"))
 });
 
 require("./src/models/author")(sequelize, models);
 require("./src/models/document")(sequelize, models);
+
+models.document.belongsTo(models.author, {foreignKey: "DOC_AUTHOR"});
 
 var app = express();
 

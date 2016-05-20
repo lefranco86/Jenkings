@@ -6,6 +6,7 @@ block content
 
     .list-group
         each val in docs
+            - console.log(val);
             a.list-group-item(href="/document/" + val.id)
                 h4.list-group-item-heading= val.title
                 p.list-group-item-text Par #{val.author.firstName} #{val.author.lastName} <#{val.author.nickname}>
