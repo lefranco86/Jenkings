@@ -8,7 +8,7 @@
     "lint": "eslint -c .eslintrc.json .",
     "populate": "node ./src/models/populate.js",
     "start": "node server.js",
-    "test": "mocha --recursive -R dot tests/",
+    "test": "mocha --recursive -R nyan tests/",
     "xml_test": "mocha --recursive -R xunit tests/ > test-reports.xml"
   },
   "repository": {
@@ -16,13 +16,16 @@
     "url": "git+https://github.com/sebastienrussell/Jenkings.git"
   },
   "author": "Sébastien Russell <russell.sebas@gmail.com>",
-  "contributors": [{
-    "name": "Jérémy Bolduc",
-    "email": "BoldJe1.work@gmail.com"
-  }, {
-    "name": "Éric Rosato-Blanchette",
-    "email": "ericrblanchette@gmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "Jérémy Bolduc",
+      "email": "BoldJe1.work@gmail.com"
+    },
+    {
+      "name": "Éric Rosato-Blanchette",
+      "email": "ericrblanchette@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sebastienrussell/Jenkings/issues"

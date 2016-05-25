@@ -17,15 +17,13 @@ describe("Jenking", function() {
 
     describe("PUT", function() {
       context("s'il l'auteur", function() {
-        context("existe", function() {
-          context("et que le formulaire", function() {
-            context("est valide", function() {
-              it("devrait modifier les informations relatif à l'auteur");
-            });
+        context("existe et que le formulaire", function() {
+          context("est valide", function() {
+            it("devrait modifier les informations relatif à l'auteur");
+          });
 
-            context("n'est pas valide", function() {
-              it("devrait afficher un message d'erreur");
-            });
+          context("n'est pas valide", function() {
+            it("devrait afficher un message d'erreur");
           });
         });
 

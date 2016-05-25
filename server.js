@@ -21,7 +21,9 @@ var sequelize = new Sequelize({
 require("./src/models/author")(sequelize, models);
 require("./src/models/document")(sequelize, models);
 
-models.document.belongsTo(models.author, {foreignKey: "DOC_AUTHOR"});
+models.document.belongsTo(models.author, {
+  foreignKey: "DOC_AUTHOR"
+});
 
 var app = express();
 
@@ -32,15 +34,12 @@ app.set('views', path.join(__dirname, 'src/public/views'));
 app.set('view engine', 'jade');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 // Initialisation du répertoire statique
 app.use(express.static(path.join(__dirname, 'src/public/static')));
-
-// Route par défaut
-app.get('/', function(req, res) {
-  res.render('index', {title: "Index", bodyContent: 'Hello World'});
-});
 
 // Importation des routes
 fs.readdirSync(pathToRoutes).forEach(function(file) {
@@ -49,8 +48,10 @@ fs.readdirSync(pathToRoutes).forEach(function(file) {
 });
 
 // Lancement du serveur
-var port = config.get('server_port');
+var port = config.get('server_port') || 3000;
 
 app.listen(port, function() {
   console.log('Jenkings started on http://localhost:' + port);
 });
+
+module.exports = app;
