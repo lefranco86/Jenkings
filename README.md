@@ -24,6 +24,7 @@ le séminaire informatique du CAL.
 * Éric Rosato-Blanchette
 * Jérémy Bolduc
 * Sébastien Russell
+* Véronique Lefrançois
 
 ## License
 
